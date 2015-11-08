@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'streams/index'
-
-  get 'streams/show'
-
-  resources :groups, only: [:index, :show]
+  resources :groups, only: [:index, :show] do
+    resources :streams, only: [:index, :show]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
