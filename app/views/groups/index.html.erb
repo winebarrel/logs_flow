@@ -1,2 +1,6 @@
 <h1>Groups#index</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
+<ul>
+  <% @groups.each do |group| %>
+    <li><%= link_to group.log_group_name, group_streams_path(group.log_group_name) %></li>
+  <% end %>
+</ul>

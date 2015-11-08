@@ -1,2 +1,6 @@
 <h1>Streams#show</h1>
-<p>Find me in app/views/streams/show.html.erb</p>
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event.message %></li>
+  <% end %>
+</ul>
