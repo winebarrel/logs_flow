@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+
   resources :groups, only: [:index, :show] do
     resources :streams, only: [:index, :show]
   end
