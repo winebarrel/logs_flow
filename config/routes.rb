@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'streams/index'
+
+  get 'streams/show'
+
   resources :groups, only: [:index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
