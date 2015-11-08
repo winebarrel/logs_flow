@@ -48,3 +48,4 @@ end
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+gem 'aws-sdk', '~> 2.1'
