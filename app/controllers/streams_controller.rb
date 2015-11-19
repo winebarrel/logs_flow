@@ -6,6 +6,7 @@ class StreamsController < ApplicationController
       log_group_name: @log_group_name
     )
 
+    streams.sort_by! {|s| -s.creation_time }
     @streams = Kaminari.paginate_array(streams).page(params[:page])
   end
 
