@@ -16,14 +16,26 @@ class Group < Log
     def describe(options = {})
       resp = self.cloudwatchlogs.describe_log_groups(options)
 
-      objs = resp.log_groups.map do |group|
-        self.new(group.to_h)
+      if options[:paginate]
+        objs = page_to_objs(resp)
+        objs.instance_variable_set(:@next_token, resp.next_token)
+      else
+        objs = resp.flat_map do |page|
+          page_to_objs(page)
+        end
       end
 
-      objs.instance_variable_set(:@next_token, resp.next_token)
       def objs.next_token; @next_token; end
 
       objs
+    end
+
+    private
+
+    def page_to_objs(page)
+      page.log_groups.map do |group|
+        self.new(group.to_h)
+      end
     end
   end # of class methods
 
