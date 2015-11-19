@@ -8,6 +8,11 @@ class StreamsController < ApplicationController
 
     streams.sort_by! {|s| -s.creation_time }
     @streams = Kaminari.paginate_array(streams).page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.json {render :json => streams}
+    end
   end
 
   def show
@@ -21,5 +26,10 @@ class StreamsController < ApplicationController
     )
 
     @events.sort_by! {|e| -e.timestamp }
+
+    respond_to do |format|
+      format.html
+      format.json {render :json => @events}
+    end
   end
 end
