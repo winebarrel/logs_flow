@@ -4,3 +4,5 @@
     <li><%= event.message %></li>
   <% end %>
 </ul>
+
+<%= events_paginate @log_group_name, @log_stream_name, @events %>
