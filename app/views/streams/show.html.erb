@@ -3,6 +3,11 @@
   <li><%= link_to @log_group_name, group_streams_path(@log_group_name, region: @region) %></li>
   <li class="active"><%= @log_stream_name %></li>
 </ol>
+<div class="checkbox">
+  <label>
+    <input type="checkbox" onclick="$('pre.events').css('word-wrap', this.checked ? 'break-word' : 'normal')">Ward Wrap
+  </label>
+</div>
 <pre class="events">
 <% @events.each do |event| %>
 <%= format_event(event) %>
