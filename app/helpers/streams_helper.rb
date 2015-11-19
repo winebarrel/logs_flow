@@ -3,21 +3,19 @@ module StreamsHelper
     navigator = ''
 
     if events.next_backward_token
-      navigator << content_tag(:span, class: :prev) do
-        link_to '‹ Prev', group_stream_path(log_group_name, log_stream_name, region: @region, next_token: events.next_backward_token)
+      navigator << content_tag(:li, class: :previous) do
+        link_to raw('&larr; Older'), group_stream_path(log_group_name, log_stream_name, region: @region, next_token: events.next_backward_token)
       end
     end
 
     if events.next_forward_token
-      navigator << '&nbsp;' if navigator.present?
-
-      navigator << content_tag(:span, class: :next) do
-        link_to 'Next ›', group_stream_path(log_group_name, log_stream_name, region: @region, next_token: events.next_forward_token)
+      navigator << content_tag(:li, class: :next) do
+        link_to raw('Newer &rarr;'), group_stream_path(log_group_name, log_stream_name, region: @region, next_token: events.next_forward_token)
       end
     end
 
     if navigator.present?
-      content_tag(:nav, navigator, {class: :pagination}, false)
+      content_tag(:ul, raw(navigator), class: :pager)
     else
       ''
     end
