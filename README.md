@@ -1,6 +1,6 @@
 # LogsFlow
 
-[CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.html) event viewer.
+[CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.html) Event Viewer.
 
 ## Installation
 
