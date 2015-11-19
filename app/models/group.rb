@@ -14,10 +14,9 @@ class Group < Log
 
   class << self
     def describe(options = {})
-      paginate = options.delete(:paginate)
       resp = self.cloudwatchlogs.describe_log_groups(options)
 
-      if paginate
+      if options[:limit]
         objs = page_to_objs(resp)
         objs.instance_variable_set(:@next_token, resp.next_token)
       else

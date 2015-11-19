@@ -17,10 +17,9 @@ class Stream < Log
 
   class << self
     def describe(options = {})
-      paginate = options.delete(:paginate)
       resp = self.cloudwatchlogs.describe_log_streams(options)
 
-      if paginate
+      if options[:limit]
         objs = page_to_objs(resp, options)
         objs.instance_variable_set(:@next_token, resp.next_token)
       else
