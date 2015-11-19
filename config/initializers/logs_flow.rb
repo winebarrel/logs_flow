@@ -6,3 +6,4 @@
 #})
 
 Rails.application.config.default_region = Aws.config[:region] || ENV['AWS_REGION'] || 'us-east-1'
+Rails.application.config.event_timestamp_format = '%m/%d %H:%M'

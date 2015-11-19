@@ -3,10 +3,10 @@
   <li><%= link_to @log_group_name, group_streams_path(@log_group_name, region: @region) %></li>
   <li class="active"><%= @log_stream_name %></li>
 </ol>
-<ul>
-  <% @events.each do |event| %>
-    <li><%= event.message %></li>
-  <% end %>
-</ul>
+<pre class="events">
+<% @events.each do |event| %>
+<%= format_event(event) %>
+<% end %>
+</pre>
 
 <%= events_paginate @log_group_name, @log_stream_name, @events %>
