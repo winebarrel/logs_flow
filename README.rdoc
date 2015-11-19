@@ -1,28 +1,21 @@
-== README
+# LogsFlow
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.html) event viewer.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+```sh
+bundle install
+vi config/initializers/logs_flow.rb
+bundle exec rails s
+```
 
-* System dependencies
+Then go to `http://localhost:3000`.
 
-* Configuration
+## Screenshot
 
-* Database creation
+[![https://gyazo.com/e874042a7ce2a9bf607c5f7d86d2c0dd](https://i.gyazo.com/e874042a7ce2a9bf607c5f7d86d2c0dd.png)](https://gyazo.com/e874042a7ce2a9bf607c5f7d86d2c0dd)
 
-* Database initialization
+[![https://gyazo.com/82dad44d3a5131172994997d71b360da](https://i.gyazo.com/82dad44d3a5131172994997d71b360da.png)](https://gyazo.com/82dad44d3a5131172994997d71b360da)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+[![https://gyazo.com/74261d722da1bdbca2c1cc6a0cbadb61](https://i.gyazo.com/74261d722da1bdbca2c1cc6a0cbadb61.png)](https://gyazo.com/74261d722da1bdbca2c1cc6a0cbadb61)
