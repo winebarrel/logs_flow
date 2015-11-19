@@ -1,11 +1,10 @@
 module StreamsHelper
   def events_paginate(log_group_name, log_stream_name, events)
     navigator = ''
-    href = "/groups/#{u @log_group_name}/streams/#{u @log_stream_name}?next_token="
 
     if events.next_backward_token
       navigator << content_tag(:span, class: :prev) do
-        link_to '‹ Prev', href + u(events.next_backward_token)
+        link_to '‹ Prev', group_stream_path(log_group_name, log_stream_name, region: @region, next_token: events.next_backward_token)
       end
     end
 
@@ -13,7 +12,7 @@ module StreamsHelper
       navigator << '&nbsp;' if navigator.present?
 
       navigator << content_tag(:span, class: :next) do
-        link_to 'Next ›', href + u(events.next_forward_token)
+        link_to 'Next ›', group_stream_path(log_group_name, log_stream_name, region: @region, next_token: events.next_forward_token)
       end
     end
 

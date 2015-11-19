@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :groups, only: [:index, :show] do
-    resources :streams, only: [:index, :show]
+  resources :groups, only: [:index, :show], id: %r{.+?}, format: /json|html/ do
+    resources :streams, only: [:index, :show], id: %r{.+?}, format: /json|html/
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

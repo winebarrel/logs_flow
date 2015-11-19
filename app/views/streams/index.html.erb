@@ -1,8 +1,8 @@
 <h1>Streams#index</h1>
 <ul>
   <% @streams.each do |stream| %>
-    <li><%= link_to stream.log_stream_name, group_stream_path(@log_group_name, stream.log_stream_name) %></li>
+    <li><%= link_to stream.log_stream_name, group_stream_path(@log_group_name, stream.log_stream_name, region: @region) %></li>
   <% end %>
 </ul>
 
-<%= paginate @streams %>
+<%= paginate @streams, params: {region: @region} %>

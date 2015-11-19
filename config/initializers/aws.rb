@@ -4,3 +4,5 @@
 #  region: 'us-west-2',
 #  credentials: Aws::Credentials.new('akid', 'secret'),
 #})
+
+Rails.application.config.default_region = Aws.config[:region] || ENV['AWS_REGION'] || 'us-east-1'
