@@ -16,11 +16,14 @@
 
 pre.events {
   overflow: auto;
-  word-wrap: normal;
   white-space: pre;
 }
 
 pre span.timestamp {
   font-size: xx-small;
   color: gray;
+}
+
+ul.pagination {
+  margin: 0;
 }

@@ -2,10 +2,10 @@
   <li><%= link_to content_tag(:span, '', :class => 'fa fa-home', 'aria-hidden' => true), root_path %>
   <li class="active"><%= @log_group_name %></li>
 </ol>
-<ul>
+<div class="list-group">
   <% @streams.each do |stream| %>
-    <li><%= link_to stream.log_stream_name, group_stream_path(@log_group_name, stream.log_stream_name, region: @region) %></li>
+    <%= link_to stream.log_stream_name, group_stream_path(@log_group_name, stream.log_stream_name, region: @region), class: 'list-group-item' %>
   <% end %>
-</ul>
+</div>
 
 <%= paginate @streams, params: {region: @region} %>

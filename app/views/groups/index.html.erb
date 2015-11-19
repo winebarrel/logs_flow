@@ -1,10 +1,10 @@
 <ol class="breadcrumb">
   <li class="active"><%= content_tag :span, '', :class => 'fa fa-home', 'aria-hidden' => true %>
 </ol>
-<ul>
+<div class="list-group">
   <% @groups.each do |group| %>
-    <li><%= link_to group.log_group_name, group_streams_path(group.log_group_name, region: @region) %></li>
+    <%= link_to group.log_group_name, group_streams_path(group.log_group_name, region: @region), class: 'list-group-item' %>
   <% end %>
-</ul>
+</div>
 
 <%= paginate @groups, prams: {region: @region} %>
