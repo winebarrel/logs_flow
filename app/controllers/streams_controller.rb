@@ -2,9 +2,11 @@ class StreamsController < ApplicationController
   def index
     @log_group_name = params[:group_id]
 
-    @streams = Stream.describe(
+    streams = Stream.describe(
       log_group_name: @log_group_name
     )
+
+    @streams = Kaminari.paginate_array(streams).page(params[:page])
   end
 
   def show

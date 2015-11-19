@@ -4,3 +4,5 @@
     <li><%= link_to stream.log_stream_name, group_stream_path(@log_group_name, stream.log_stream_name) %></li>
   <% end %>
 </ul>
+
+<%= paginate @streams %>
