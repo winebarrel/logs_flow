@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
-  <li><%= link_to content_tag(:span, '', :class => 'fa fa-home', 'aria-hidden' => true), root_path %>
+  <li><%= link_to content_tag(:span, '', :class => 'fa fa-home', 'aria-hidden' => true), root_path(region: @region) %>
   <li class="active"><%= @log_group_name %></li>
 </ol>
 <div class="list-group">
