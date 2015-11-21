@@ -1,7 +1,7 @@
 <ol class="breadcrumb">
   <li><%= link_to content_tag(:span, '', :class => 'fa fa-home', 'aria-hidden' => true), root_path(region: @region) %>
   <li><%= link_to @log_group_name, group_streams_path(@log_group_name, region: @region) %></li>
-  <li class="active"><%= @log_stream_name %></li>
+  <li class="active"><%= link_to @log_stream_name, group_stream_path(@log_group_name, @log_stream_name, region: @region) %></li>
 </ol>
 <div class="checkbox">
   <label>
