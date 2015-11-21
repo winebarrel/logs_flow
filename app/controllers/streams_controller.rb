@@ -22,7 +22,8 @@ class StreamsController < ApplicationController
     @events = Event.describe(
       log_group_name: @log_group_name,
       log_stream_name: @log_stream_name,
-      next_token: params[:next_token]
+      next_token: params[:next_token],
+      limit: 100
     )
 
     @events.sort_by! {|e| -e.timestamp }
