@@ -15,16 +15,26 @@ class Stream < Log
 
   attr_accessor *ATTRIBUTES
 
+  MAX_PAGE = 5
+
   class << self
     def describe(options = {})
+      options.reverse_merge!(descending: true)
       resp = self.cloudwatchlogs.describe_log_streams(options)
 
       if options[:limit]
         objs = page_to_objs(resp, options)
         objs.instance_variable_set(:@next_token, resp.next_token)
       else
-        objs = resp.flat_map do |page|
-          page_to_objs(page, options)
+        objs = []
+        page = resp
+
+        begin
+          (1..MAX_PAGE).each do |i|
+            objs.concat page_to_objs(page, options)
+            page = page.next_page
+          end
+        rescue Aws::PageableResponse::LastPageError
         end
       end
 
