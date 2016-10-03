@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
+  get '/hello/revision' => RevisionPlate::App.new(Rails.root.join('REVISION'))
+
   resources :groups, only: [:index, :show], id: %r{.+?}, format: /json|html/ do
     resources :streams, only: [:index, :show], id: %r{.+?}, format: /json|html/
   end
